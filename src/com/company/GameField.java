@@ -64,12 +64,7 @@ public class GameField extends JPanel {
                 }
                 if (key == player.rightAttackKey) {
                     player.setAttackRightImage();
-                    if (player.getX() <Constants.MAX_RIGHT_POSITION) {
-                        int neighbourId = CharacterClass.occupiedCells[player.getX() + Constants.CHARACTER_IMG_WIDTH][player.getY()];
-                        if (neighbourId > 0){
-                            player.attack(players[neighbourId - 1]);
-                        }
-                    }
+                    player.rightAttack(players);
                     //timer
                     new java.util.Timer().schedule(
                             new java.util.TimerTask() {

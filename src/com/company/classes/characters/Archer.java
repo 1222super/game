@@ -44,6 +44,9 @@ public class Archer  extends CharacterClass {
             int neighbourId = CharacterClass.occupiedCells[this.getX() - Constants.CHARACTER_IMG_WIDTH][this.getY()];
             if (neighbourId > 0){
                 this.attack(players[neighbourId - 1]);
+            } else {
+                neighbourId = occupiedCells[this.getX() - Constants.CHARACTER_IMG_WIDTH * 2][this.getY()];
+                this.attack(players[neighbourId - 1]);
             }
         }
     }
