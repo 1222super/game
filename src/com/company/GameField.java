@@ -49,12 +49,7 @@ public class GameField extends JPanel {
                 }
                 if (key == player.leftAttackKey) {
                     player.setAttackLeftImage();
-                    if (player.getX() >= Constants.CHARACTER_IMG_WIDTH) {
-                        int neighbourId = CharacterClass.occupiedCells[player.getX() - Constants.CHARACTER_IMG_WIDTH][player.getY()];
-                        if (neighbourId > 0){
-                            player.attack(players[neighbourId - 1]);
-                        }
-                    }
+                    player.leftAttack(players);
 
                     //timer
                     new java.util.Timer().schedule(

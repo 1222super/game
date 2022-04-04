@@ -39,8 +39,13 @@ public class Archer  extends CharacterClass {
         int newPositionY = this.getY() < Constants.MAX_RIGHT_POSITION ? this.getY() + Constants.CHARACTER_IMG_HEIGHT : 0;
         tryChangePosition(getX(), newPositionY);
     }
-    public void leftAttack() {
-
+    public  void leftAttack(CharacterClass[] players) {
+        if (this.getX() >= Constants.CHARACTER_IMG_WIDTH) {
+            int neighbourId = CharacterClass.occupiedCells[this.getX() - Constants.CHARACTER_IMG_WIDTH][this.getY()];
+            if (neighbourId > 0){
+                this.attack(players[neighbourId - 1]);
+            }
+        }
     }
     public void rightAttack() {
 
